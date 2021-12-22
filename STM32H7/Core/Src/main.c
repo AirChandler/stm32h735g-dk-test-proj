@@ -189,6 +189,7 @@ int main(void)
   while (1)
   {
 	  HAL_GPIO_TogglePin(GPIOC, USER_LED2_Pin);
+	  HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_7);
 	  HAL_Delay(100);
   }
   /* USER CODE END 3 */
@@ -1416,6 +1417,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+  /*Configure GPIO pins : EXT GPIOD pin 7 led */
+  GPIO_InitStruct.Pin = GPIO_PIN_7;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 
   /*Configure GPIO pin : SPI5_MISO_Pin */
   GPIO_InitStruct.Pin = SPI5_MISO_Pin;
